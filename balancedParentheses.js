@@ -1,10 +1,10 @@
 function balancedParentheses(value){
 var count=0;
 for(let i=0;i<= value.length-1; i++ ){
-if(value[i]=='('){
+if(value[i]==='('){
 count++;
 }
-else{
+else if(value[i]===')'){
 count--;
 if(count===-1){return false;}
 }
