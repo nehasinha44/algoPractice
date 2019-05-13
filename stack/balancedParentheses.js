@@ -1,65 +1,30 @@
-class Stack {
-    constructor() {
-        this.items = [];
+let isMatchingBrackets = function (str) {
+    let stack = [];
+    let map = {
+        '(': ')',
+        '[': ']',
+        '{': '}'
     }
 
-    isEmpty() {
-         return !Boolean(this.items.length); // equivalent to `!!this.items.length`
-     }
+    for (let i = 0; i < str.length; i++) {
 
-     push(item) {
-         this.items.splice(0, 0, item);
-     }
-
-     pop() {
-         return this.items.shift();
-     }
-
-     peek() {
-         return this.items[0];
-     }
-
-     size() {
-         return this.items.length;
-     }
-}
-
-function Parachecker(symbbolString){
-    var s = new Stack();
-    var balanced =true;
-    var index = 0;
-    var openingSymbols = ['(', '[', '{'];
-
-    while(index < symbbolString.length && balanced ){
-        var symbol = symbbolString[index]; //string value first char
-        if(openingSymbols.includes(symbol)){
-            s.push(symbol);
+        // If character is an opening brace add it to a stack
+        if (str[i] === '(' || str[i] === '{' || str[i] === '[' ) {
+            stack.push(str[i]);
         }
-        else{
-            if(s.isEmpty()){
-                balanced = false;
-            }
-            else{
-                s.pop();
-                if (matches(top, symbol)) {
-                    balanced = false;
-                }
-            }
+        //  If that character is a closing brace, pop from the stack, which will also reduce the length of the stack each time a closing bracket is encountered.
+        else {
+            let last = stack.pop();
+
+            //If the popped element from the stack, which is the last opening brace doesn’t match the corresponding closing brace in the map, then return false
+            if (str[i] !== map[last]) {return false};
         }
-        index++;
     }
-    if(balanced && s.isEmpty()){
-        return true
-    }
-    else{
-        return false;
+    // By the completion of the for loop after checking all the brackets of the str, at the end, if the stack is not empty then fail
+        if (stack.length !== 0) {return false};
 
-    }
-}
-function matches(open, close) {
-    opens = ['(', '[', '{'];
-    closers = [')', ']', '}'];
-    return opens.indexOf(open) === closers.indexOf(close);
+    return true;
 }
 
-console.log(Parachecker('{{([][])}()}'));
+console.log(isMatchingBrackets("(){}")); // returns true
+console.log(isMatchingBrackets("[{()()}({[]})]({}[({})])((((((()[])){}))[]{{{({({({{{{{{}}}}}})})})}}}))[][][]")); // returns true
