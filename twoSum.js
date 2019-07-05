@@ -13,3 +13,5 @@ function twoSum(numArray, sum) {
     
     return pairs;
   }
+
+  twoSum([2,1,2,3,1],4);
