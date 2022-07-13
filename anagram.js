@@ -5,4 +5,4 @@ function anagram(strFirst, strSec) {
    return (str1ConvertLorwerCase === str2ConvertLorwerCase ? true : false) ;
     
 }
-console.log(anagram('pellhy', 'hellpy'));
+console.log(anagram('pellhy', 'hellpy'))

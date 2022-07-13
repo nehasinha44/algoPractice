@@ -18,4 +18,4 @@ for(let char of str.replace(/[^\w]/g, '').toLowerCase()){
 console.log(charMap)
 return charMap;
 }
-anagram('asd','ssa')
+anagram('cat','rat')
