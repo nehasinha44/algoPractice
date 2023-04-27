@@ -1,3 +1,27 @@
+
+var maximumSwap = function(num) {
+    const numArr = num.toString().split(""); 
+    const maxIdx = [];
+    let maxSofar = numArr.length-1;
+    
+    for(let i = numArr.length-1; i >= 0; i--) {
+        if(numArr[i] > numArr[maxSofar]) maxSofar = i;
+        maxIdx[i] = maxSofar;
+    }
+    
+    for(let i = 0; i < numArr.length; i++) {
+        const swapIdx = maxIdx[i];
+        if(i != swapIdx && numArr[i] != numArr[swapIdx]) {
+            [numArr[i], numArr[swapIdx]] = [numArr[swapIdx], numArr[i]]; // swap 
+            break;
+        }
+    }
+    return +numArr.join('');
+};
+
+
+// o(n+n) time complex o(n)-> space
+
 //https://leetcode.com/problems/maximum-swap/ 
 
 var maximumSwap = function(num) {   //2736
@@ -23,23 +47,4 @@ var maximumSwap = function(num) {   //2736
 };
 
 
-var maximumSwap = function(num) {
-    const numArr = num.toString().split(""); 
-    const maxIdx = [];
-    let maxSofar = numArr.length-1;
-    
-    for(let i = numArr.length-1; i >= 0; i--) {
-        if(numArr[i] > numArr[maxSofar]) maxSofar = i;
-        maxIdx[i] = maxSofar;
-    }
-    
-    for(let i = 0; i < numArr.length; i++) {
-        const swapIdx = maxIdx[i];
-        if(i != swapIdx && numArr[i] != numArr[swapIdx]) {
-            [numArr[i], numArr[swapIdx]] = [numArr[swapIdx], numArr[i]]; // swap 
-            break;
-        }
-    }
-    return +numArr.join('');
-};
 

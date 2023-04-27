@@ -1,6 +1,6 @@
 {/* <script> */}
 
-// JavaScript program for reversing the linked list
+// JavaScript program for reversing the linked list  time compl O(N), space O(1)
 
 var head;
 

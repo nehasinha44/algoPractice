@@ -1,6 +1,9 @@
 
-
-//dp
+// https://www.youtube.com/watch?v=wWHx__0IAuI
+//dp create table and fuill with 0 
+// for first and 2nd loop if obstacleGrid is there and breck or put 1
+// loop i and j and if obstacleGrid is there then 0 else +, i-1 + j-1 
+// return last element 
 
 var uniquePathsWithObstacles = function (obstacleGrid) {
     if(obstacleGrid[0][0]===1 || obstacleGrid[obstacleGrid.length-1][obstacleGrid[0].length-1]===1)
@@ -27,7 +30,7 @@ var uniquePathsWithObstacles = function (obstacleGrid) {
                 table[i][j]=0;
             }
             else{
-                table[i][j]=table[i-1][j]+table[i][j-1] 
+                table[i][j]=table[i-1][j]+table[i][j-1]  // sum of table i-1 + j-1
             }
         }
     }

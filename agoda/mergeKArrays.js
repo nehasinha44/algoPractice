@@ -1,42 +1,4 @@
 
-	function mergeKArrays(arr , a, output) // a is length of arr
-	{
-		var c = 0;
-
-		// traverse the matrix
-		for (i = 0; i < a; i++) {
-			for (j = 0; j < 4; j++)
-				output = arr[i][j];
-		}
-
-		// sort the array
-		output.sort((a,b)=>a-b);
-	}
-
-	// A utility function to print array elements
-	function printArray(arr , size) {
-		for (i = 0; i < size; i++)
-			document.write(arr[i] + " ");
-	}
-
-	// Driver program to test above functions
-	
-		var arr = [ [ 2, 6, 12, 34 ],
-					[ 1, 9, 20, 1000 ],
-					[ 23, 34, 90, 2000 ] ];
-		var K = 4;
-		var N = 3;
-		var output = Array(N * K).fill(0);
-
-		mergeKArrays(arr, N, output);
-
-		document.write("Merged array is ");
-		printArray(output, N * K);
-
-
-// This code contributed by Rajput-Ji
-
-
 // Javascript program to merge k
 // sorted arrays of size n each.
 let N = 4
